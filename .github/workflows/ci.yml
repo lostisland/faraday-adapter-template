@@ -24,7 +24,6 @@ jobs:
 
       - name: Standard
         run: |
-          gem install standardrb
           bundle exec standardrb
   build:
     needs: [linting]
