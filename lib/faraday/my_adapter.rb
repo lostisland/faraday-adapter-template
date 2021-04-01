@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'adapter/my_adapter'
-require_relative 'my_adapter/version'
+require_relative "adapter/my_adapter"
+require_relative "my_adapter/version"
 
 module Faraday
   module MyAdapter
