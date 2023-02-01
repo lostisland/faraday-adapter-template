@@ -10,24 +10,11 @@ env:
   GIT_BRANCH: ${{ github.ref }}
 
 jobs:
-  linting:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v1
-
-      - name: Set up Ruby 2.7
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7
-          bundler-cache: true
-
   build:
-    needs: [linting]
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby: ['2.5', '2.6', '2.7', '3.0', 'head']
+        ruby: ['2.5', '2.6', '2.7', '3.0', '3.1', 'head']
 
     steps:
       - uses: actions/checkout@v1
