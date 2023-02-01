@@ -53,11 +53,13 @@ module Faraday
         # NOTE: An adapter `call` MUST return the `env.response`. If `save_response` is the last line in your `call`
         # method implementation, it will automatically return the response for you.
         # Otherwise, you'll need to manually do so. You can do this with any (not both) of the following lines:
-        # * @app.call(env)
-        # * env.response
-      # Finally, it's good practice to rescue client-specific exceptions (e.g. Timeout, ConnectionFailed, etc...)
-      # and re-raise them as Faraday Errors. Check `Faraday::Error` for a list of all errors.
+
+        # @app.call(env)
+        # env.response
       rescue MyAdapterTimeout => e
+        # Finally, it's good practice to rescue client-specific exceptions (e.g. Timeout, ConnectionFailed, etc...)
+        # and re-raise them as Faraday Errors. Check `Faraday::Error` for a list of all errors.
+        #
         # Most errors allow you to provide the original exception and optionally (if available) the response, to
         # make them available outside of the middleware stack.
         raise Faraday::TimeoutError, e
