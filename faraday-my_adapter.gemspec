@@ -21,4 +21,10 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir.glob('lib/**/*') + %w[README.md LICENSE.md]
   spec.require_paths = ['lib']
+
+  # This range would desirable. If that's not possible (e.g. the adapter uses a
+  # new feature like the new streaming API), then a simple ~> 2.5 would
+  # suffice, although it might make it harder for users to use the adapter in
+  # legacy applications.
+  spec.add_dependency "faraday", [">= 1.10", "< 3"]
 end
